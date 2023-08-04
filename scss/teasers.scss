@@ -1,0 +1,18 @@
+.teasers{
+  .featured_article, .featured_service{
+    padding: 0 20px;
+  }
+
+  .featured_service{
+    margin:32px 0;
+    border-top:1px solid rgba(255,255,255,0.1);
+    img{
+      width: 250px;
+      height: 150px;
+      max-width: none;
+    }
+  }
+  .featured_service:first-child{
+    margin-top: 0;
+  }
+}

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'header.scss';
+@import 'banner.scss';
+@import "teasers.scss";
+@layer base {
+  body{
+   font-family: Poppins, sans-serif;
+  }
+}
+body {
+  background: #ECECEC;
+}
+.dark {
+  background: #121212;
+  padding: 20px 40px 40px 40px;
+}

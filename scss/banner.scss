@@ -1,0 +1,14 @@
+.banner{
+  .banner_text{
+    margin: 20px 0 60px;
+    padding: 40px 20px;
+    line-height: 0.9;
+    border-top:1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+  }
+  p{
+    font-size: clamp(10vw, 17vw, 300px); /* Adjust these values as per your preference */    font-weight: 700;
+    letter-spacing: -14px;
+  }
+}

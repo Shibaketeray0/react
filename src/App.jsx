@@ -10,8 +10,10 @@ export default function App() {
     const [banner, setBanner] = useState({});
     const [importantTeaser, setImportantTeaser] = useState({});
     const [teasers, setTeasers] = useState({});
+    const [slider, setSlider] = useState({});
 
-    const websiteURL = 'http://91.107.217.207/';
+
+    const websiteURL = 'http://91.107.217.207';
 
 
     useEffect(() => {
@@ -35,17 +37,21 @@ export default function App() {
         fetchDataFromServer('http://91.107.217.207/jsonapi/block_content/social_links/da13c4ff-fea5-48e6-bedb-7ede57c8f29d?resourceVersion=id%3A2&include=field_social_links.field_icon_svg', setSocial)
         fetchDataFromServer('http://91.107.217.207/jsonapi/node/page', setBanner);
         fetchDataFromServer('http://91.107.217.207/blog-articles-first?_format=json', setImportantTeaser);
-        fetchDataFromServer('http://91.107.217.207/blog-articles-second?_format=json', setTeasers)
+        fetchDataFromServer('http://91.107.217.207/blog-articles-second?_format=json', setTeasers);
+        fetchDataFromServer('http://91.107.217.207/design-tutorials-first?_format=json', setSlider);
 
     }, []);
 
 
     return (
         <>
-            <div className="container mx-auto bg-black">
+            <div className="dark container mx-auto">
                 <Header websiteURL={websiteURL} logo={logo} menu={menu} social={social}/>
                 <Banner banner={banner}/>
-                <Teasers importantTeaser={importantTeaser} teasers={teasers}/>
+                <Teasers websiteURL={websiteURL} importantTeaser={importantTeaser} teasers={teasers} containerClass={'teasers'}/>
+            </div>
+            <div className="container mx-auto">
+                <Teasers websiteURL={websiteURL} teasers={slider} containerClass={'teasers__slider'}/>
             </div>
         </>
     );

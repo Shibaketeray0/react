@@ -1,3 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+header .logo {
+  width: 40px;
+}
+header .nav {
+  padding: 30px 18px;
+}
+header .menu li {
+  margin-left: 40px;
+  color: white;
+  opacity: 0.5;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+header .menu li:hover {
+  opacity: 1;
+}
+header .menu .active {
+  opacity: 1;
+}
+header .social_links {
+  padding-right: 16px;
+}
+header .social_links li {
+  margin-left: 16px;
+}
+header .social_links a {
+  opacity: 0.5;
+}
+header .social_links a:hover {
+  opacity: 1;
+}
+header .social_links img {
+  width: 22px;
+}
+
+.banner .banner_text {
+  margin: 20px 0 60px;
+  padding: 40px 20px;
+  line-height: 0.9;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+.banner p {
+  font-size: clamp(10vw, 17vw, 300px); /* Adjust these values as per your preference */
+  font-weight: 700;
+  letter-spacing: -14px;
+}
+
+.teasers .featured_article, .teasers .featured_service {
+  padding: 0 20px;
+}
+.teasers .featured_service {
+  margin: 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.teasers .featured_service img {
+  width: 250px;
+  height: 150px;
+  max-width: none;
+}
+.teasers .featured_service:first-child {
+  margin-top: 0;
+}
+
+@layer base {
+  body {
+    font-family: Poppins, sans-serif;
+  }
+}
+body {
+  background: #ECECEC;
+}
+
+.dark {
+  background: #121212;
+  padding: 20px 40px 40px 40px;
+}

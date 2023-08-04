@@ -23,7 +23,7 @@ export default function Header({websiteURL, logo, menu, social}) {
     const displaySocial = social.field_social_links
         ? social.field_social_links.map((link, index) => {
             return (
-                <li key={index}>
+                <li key={index} className={link.field_link.title}>
                     <a href={link.field_link.uri} target={"_blank"}>
                         <img
                             src={websiteURL + link.field_icon_svg.uri.url}
@@ -36,20 +36,24 @@ export default function Header({websiteURL, logo, menu, social}) {
         : null;
     return (
         <header>
-            <div className="container">
-                {logo && logo.field_image && (
-                    <img
-                        src={websiteURL + logo.field_image.uri.url}
-                        alt={logo.alt}
-                        width={logo.width}
-                        height={logo.height}
-                    />
-                )}
-
-                <ul className="nav text-white">{displayMenu}</ul>
-
+            <div className="container flex justify-between items-center">
+                <div className="nav flex items-center">
+                    {logo && logo.field_image && (
+                        <div className="logo">
+                            <a href="#">
+                                <img
+                                    src={websiteURL + logo.field_image.uri.url}
+                                    alt={logo.alt}
+                                    width={logo.width}
+                                    height={logo.height}
+                                />
+                            </a>
+                        </div>
+                    )}
+                    <ul className="menu uppercase flex">{displayMenu}</ul>
+                </div>
                 {social.field_social_links && (
-                    <ul>{displaySocial}</ul>
+                    <ul className="social_links flex">{displaySocial}</ul>
                 )}
             </div>
         </header>
