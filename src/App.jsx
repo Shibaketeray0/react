@@ -50,7 +50,7 @@ export default function App() {
                 <Banner banner={banner}/>
                 <Teasers websiteURL={websiteURL} importantTeaser={importantTeaser} teasers={teasers} containerClass={'teasers'}/>
             </div>
-            <div className="container mx-auto">
+            <div className="white container mx-auto">
                 <Teasers websiteURL={websiteURL} teasers={slider} containerClass={'teasers__slider'}/>
             </div>
         </>

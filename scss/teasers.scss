@@ -1,18 +1,50 @@
 .teasers{
-  .featured_article, .featured_service{
+  .featured_article, .featured_right_section{
     padding: 0 20px;
+  }
+  .date{
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .title{
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  .featured_article{
+    .date{
+      padding: 20px 0 10px;
+    }
+    .title{
+      font-size: 32px;
+      line-height: 42px;
+      margin-bottom: 16px;
+    }
+    .body{
+      font-size: 18px;
+      line-height: 28px;
+    }
   }
 
   .featured_service{
-    margin:32px 0;
+    margin-bottom:32px;
+    padding-top: 32px;
     border-top:1px solid rgba(255,255,255,0.1);
     img{
       width: 250px;
       height: 150px;
       max-width: none;
+      padding-right: 10px;
+    }
+    .title{
+      font-size: 25px;
+      opacity: 0.8;
+    }
+    .teaser_content{
+      padding-left: 10px;
     }
   }
   .featured_service:first-child{
-    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
   }
 }

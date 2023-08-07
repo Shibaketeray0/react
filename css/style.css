@@ -38,34 +38,71 @@ header .social_links img {
   width: 22px;
 }
 
-.banner .banner_text {
-  margin: 20px 0 60px;
-  padding: 40px 20px;
-  line-height: 0.9;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-}
-.banner p {
-  font-size: clamp(10vw, 17vw, 300px); /* Adjust these values as per your preference */
-  font-weight: 700;
-  letter-spacing: -14px;
-}
-
-.teasers .featured_article, .teasers .featured_service {
+.banner {
   padding: 0 20px;
 }
+.banner .banner_text {
+  margin: 20px 0 60px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.banner .banner_text text {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  max-height: 300px;
+}
+
+.teasers .featured_article, .teasers .featured_right_section {
+  padding: 0 20px;
+}
+.teasers .date {
+  font-size: 14px;
+  line-height: 14px;
+}
+.teasers .title {
+  font-weight: 600;
+  opacity: 0.8;
+}
+.teasers .featured_article .date {
+  padding: 20px 0 10px;
+}
+.teasers .featured_article .title {
+  font-size: 32px;
+  line-height: 42px;
+  margin-bottom: 16px;
+}
+.teasers .featured_article .body {
+  font-size: 18px;
+  line-height: 28px;
+}
 .teasers .featured_service {
-  margin: 32px 0;
+  margin-bottom: 32px;
+  padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .teasers .featured_service img {
   width: 250px;
   height: 150px;
   max-width: none;
+  padding-right: 10px;
+}
+.teasers .featured_service .title {
+  font-size: 25px;
+  opacity: 0.8;
+}
+.teasers .featured_service .teaser_content {
+  padding-left: 10px;
 }
 .teasers .featured_service:first-child {
-  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+.teasers__slider {
+  max-width: 100%;
 }
 
 @layer base {
@@ -77,7 +114,20 @@ body {
   background: #ECECEC;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.white {
+  padding: 60px 40px 40px 40px;
+  background: #fff;
+}
+
 .dark {
   background: #121212;
   padding: 20px 40px 40px 40px;
+}
+
+.slick-slide {
+  width: 25%;
 }
