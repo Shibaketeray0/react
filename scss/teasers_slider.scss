@@ -1,3 +1,45 @@
-.teasers__slider{
+@import "_mixins.scss";
+.teasers__slider1, .teasers__slider2{
+  @include teaser;
   max-width: 100%;
+  .feature__slide{
+    padding: 0 28px;
+    min-height: 480px;
+  }
+  .title{
+    hyphens: auto;
+  }
+
+  .slick-arrow{
+    display: none;
+  }
+  .slick-dots{
+    position: relative;
+    margin-top: 30px;
+    bottom: -10px;
+  }
+}
+.teasers__slider1{
+  .title{
+    color:black;
+  }
+}
+.teasers__slider2{
+  img{
+    width: 280px;
+    height: 175px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.dark-slider {
+  padding-top:40px;
+  .slick-dots {
+    li {
+      button::before {
+        color:white;
+      }
+    }
+  }
 }

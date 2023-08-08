@@ -1,50 +1,78 @@
-.teasers{
-  .featured_article, .featured_right_section{
+@import "_mixins.scss";
+
+.teasers, .articles {
+  .featured_article, .featured_right_section {
     padding: 0 20px;
   }
-  .date{
+
+  .date {
     font-size: 14px;
     line-height: 14px;
   }
-  .title{
+
+  .title {
     font-weight: 600;
     opacity: 0.8;
   }
-  .featured_article{
-    .date{
+
+  .featured_article {
+    .date {
       padding: 20px 0 10px;
     }
-    .title{
+
+    .title {
       font-size: 32px;
       line-height: 42px;
       margin-bottom: 16px;
     }
-    .body{
+
+    .body {
       font-size: 18px;
       line-height: 28px;
     }
   }
 
-  .featured_service{
-    margin-bottom:32px;
+  .featured_service {
+    margin-bottom: 32px;
     padding-top: 32px;
-    border-top:1px solid rgba(255,255,255,0.1);
-    img{
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    @include teaser;
+
+    img {
       width: 250px;
       height: 150px;
       max-width: none;
       padding-right: 10px;
     }
-    .title{
-      font-size: 25px;
-      opacity: 0.8;
-    }
-    .teaser_content{
+
+    .teaser_content {
       padding-left: 10px;
     }
   }
-  .featured_service:first-child{
+
+  .featured_service:first-child {
     border-top: none;
     padding-top: 0;
+  }
+}
+
+.articles__inner {
+  justify-content: space-between;
+
+  .featured_service {
+    max-width: 410px;
+    flex-direction: column;
+    padding: 0;
+
+    img {
+      width: 410px;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .teaser_content {
+      padding: 0;
+    }
   }
 }

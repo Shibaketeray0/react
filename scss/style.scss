@@ -2,29 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-@import 'header.scss';
-@import 'banner.scss';
-@import "teasers.scss";
-@import "teasers_slider.scss";
 @layer base {
-  body{
-   font-family: Poppins, sans-serif;
+  body {
+    font-family: Poppins, sans-serif;
   }
 }
+
 body {
   background: #ECECEC;
 }
+
 * {
+  scroll-behavior: smooth !important;
   box-sizing: border-box;
 }
-.white{
-  padding: 60px 40px 40px 40px;
+
+.white {
+  padding: 60px 40px 60px 40px;
   background: #fff;
 }
+
 .dark {
   background: #121212;
   padding: 20px 40px 40px 40px;
 }
-.slick-slide{
+
+.slick-slide {
   width: 25%;
 }
+.slick-arrow{
+  display: none !important;
+}
+.back-to-top{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 7px 13px;
+  bottom:20px;
+  right:20px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  background: white;
+  transition: opacity 0.3s ease;
+}
+@import 'header.scss';
+@import 'banner.scss';
+@import "teasers.scss";
+@import "teasers_slider.scss";
+@import "static_blocks.scss";

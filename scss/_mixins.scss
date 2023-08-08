@@ -1,0 +1,25 @@
+@mixin teaser {
+  .date{
+    font-size: 14px;
+    line-height: 14px;
+    padding-top: 20px;
+  }
+  .title{
+    margin-top: 10px;
+    font-size: 25px;
+    line-height: 35px;
+    opacity: 0.8;
+    font-weight: 600;
+  }
+  .body{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 200;
+    padding-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+  }
+}
