@@ -1,0 +1,53 @@
+@import "_mixins.scss";
+.latest-news{
+  display: flex;
+  .articles,
+  .right_section {
+    padding: 0 20px;
+  }
+  .articles{
+    max-width: 66%;
+    .featured_service{
+      max-width: 100%;
+      width: 100%;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-top: 40px;
+      img{
+        width: 350px;
+        height: 210px;
+        padding: 0;
+      }
+    }
+    .teaser_image{
+      align-self: end;
+    }
+  }
+  .articles__inner{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .right_section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .archive{
+    @include teaser;
+    padding: 10px 0 24px 24px;
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    .date{
+      opacity: 0.5;
+    }
+    .title{
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+  .archive:last-child{
+    border-bottom:none;
+  }
+}

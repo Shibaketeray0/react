@@ -3,6 +3,19 @@ import Header from "./Header.jsx";
 import Banner from "./Banner.jsx";
 import Teasers from "./Teasers.jsx";
 import Static from "./Static.jsx";
+import Archive from "./Archive.jsx";
+import Testimonial from "./Testimonial.jsx";
+
+export const parseAttribute = (string, tag, attribute) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(string, 'text/html');
+    const imgElement = doc.querySelector(tag);
+    return imgElement ? imgElement.getAttribute(attribute) : null;
+}
+export const stripHtmlTags = (htmlString) => {
+    const doc = new DOMParser().parseFromString(htmlString, 'text/html');
+    return doc.body.textContent || '';
+}
 
 export default function App() {
     const [logo, setLogo] = useState({});
@@ -16,8 +29,9 @@ export default function App() {
     const [slider2, setSlider2] = useState({});
     const [staticBlock2, setStatic2] = useState({});
     const [articles, setArticles] = useState({});
-
-
+    const [archives, setArchives] = useState({});
+    const [eventImage, setEventImage] = useState({});
+    const [testimonials, setTestimonials] = useState({});
 
 
     const websiteURL = 'http://91.107.217.207';
@@ -48,15 +62,21 @@ export default function App() {
         fetchDataFromServer('http://91.107.217.207/jsonapi/block_content/w_full_block/cf972415-4ba6-4d47-ae43-11798f4b8e2a?resourceVersion=id%3A3&include=field_image', setStatic1)
         fetchDataFromServer('http://91.107.217.207/editors-choice?_format=json', setSlider2);
         fetchDataFromServer('http://91.107.217.207/jsonapi/block_content/w_full_block/121c2905-1aad-4a35-b001-249f99f464e1?resourceVersion=id%3A4&include=field_image', setStatic2)
-        fetchDataFromServer('http://91.107.217.207/latest-articles?_format=json', setArticles)
+        fetchDataFromServer('http://91.107.217.207/latest-articles?_format=json', setArticles);
+        fetchDataFromServer('http://91.107.217.207/archives?_format=json', setArchives);
+        fetchDataFromServer('http://91.107.217.207/jsonapi/block_content/basic/07440139-1de0-44ab-98d8-9a7b437245db?resourceVersion=id%3A5&include=field_image', setEventImage)
+        fetchDataFromServer('http://91.107.217.207/testimonials?_format=json', setTestimonials);
 
     }, []);
-    $(window).scroll(function(e){
-        if ($(this).scrollTop() > 0) {
-            $(".back-to-top").css("opacity", "1");
 
+    $(window).scroll(function(e){
+        let button = $(".back-to-top")
+        if ($(this).scrollTop() > 0) {
+            button.addClass('vis');
+            button.removeClass('invis');
         } else {
-            $(".back-to-top").css("opacity", "0");
+            button.removeClass('vis');
+            button.addClass('invis');
         }
     });
 
@@ -85,10 +105,22 @@ export default function App() {
             <div className="dark container mx-auto px-40 py-60">
                 <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'teasers__slider2 dark-slider'} textColor={'white'}/>
             </div>
-            <div className="white container mx-auto">
-
+            <div className="white container mx-auto latest-news">
+                <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'articles'}/>
+                <div className="right_section">
+                    <Archive websiteURL={websiteURL} archives={archives}/>
+                    <div className="event_image">
+                        {eventImage.field_image && (
+                            <img src={websiteURL + eventImage.field_image.uri.url} alt={eventImage.field_image.alt} className="mt-[60px]"/>
+                        )}
+                    </div>
+                    <Testimonial websiteURL={websiteURL} testimonials={testimonials} />
+                </div>
             </div>
-            <a href="#top" className="back-to-top">
+
+
+
+            <a href="#top" className="back-to-top invis">
                 Back to top <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -1,0 +1,29 @@
+.testimonials{
+  margin-top: 40px;
+  .testimonial{
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 300;
+    display: flex;
+    padding: 24px 0 24px 24px;
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    img{
+      border-radius: 2000px;
+      width: 36px;
+      height: 36px;
+    }
+    .body{
+      opacity: 0.5;
+    }
+    .user{
+      font-weight: 400;
+    }
+    .testimonial_content{
+        padding-left: 10px;
+    }
+  }
+  .testimonial:last-child{
+    border-bottom: none;
+  }
+}

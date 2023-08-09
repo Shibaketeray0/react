@@ -1,8 +1,7 @@
+import {stripHtmlTags} from "./App.jsx";
+
 export default function Static({websiteURL, staticBlock, textColor}) {
-    const stripHtmlTags = (htmlString) => {
-        const doc = new DOMParser().parseFromString(htmlString, 'text/html');
-        return doc.body.textContent || '';
-    }
+
 
     return (
         <div className="static_block grid grid-cols-2 gap-x-16">

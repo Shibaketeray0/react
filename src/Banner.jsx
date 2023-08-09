@@ -1,8 +1,6 @@
+import {stripHtmlTags} from "./App.jsx";
 export default function Banner({banner}) {
-    const stripHtmlTags = (htmlString) => {
-        const doc = new DOMParser().parseFromString(htmlString, 'text/html');
-        return doc.body.textContent || '';
-    }
+
     return (
         <div className="banner">
                 {banner[0] && banner[0].body && (

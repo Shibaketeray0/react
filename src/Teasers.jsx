@@ -1,17 +1,11 @@
 import Slider from "react-slick";
 import "../node_modules/slick-carousel/slick/slick.css";
 import "../node_modules/slick-carousel/slick/slick-theme.css";
+import {parseAttribute} from "./App.jsx";
+import {stripHtmlTags} from "./App.jsx";
+
 export default function Teasers({websiteURL, importantTeaser, teasers, containerClass, textColor}) {
-    const parseAttribute = (string, tag, attribute) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(string, 'text/html');
-        const imgElement = doc.querySelector(tag);
-        return imgElement ? imgElement.getAttribute(attribute) : null;
-    }
-    const stripHtmlTags = (htmlString) => {
-        const doc = new DOMParser().parseFromString(htmlString, 'text/html');
-        return doc.body.textContent || '';
-    }
+
     const displayImportantTeaser = () => {
         return (
             <>
