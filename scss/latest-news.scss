@@ -1,10 +1,9 @@
 @import "_mixins.scss";
 .latest-news{
   display: flex;
+  flex-direction: column;
   .articles,
-  .right_section {
-    padding: 0 20px;
-  }
+
   .articles{
     max-width: 66%;
     .featured_service{
@@ -32,6 +31,13 @@
     display: flex;
     flex-direction: column;
   }
+  .event_image{
+    display: flex;
+    justify-content: center;
+    img{
+      width: 70%;
+    }
+  }
 
   .archive{
     @include teaser;
@@ -49,5 +55,27 @@
   }
   .archive:last-child{
     border-bottom:none;
+  }
+}
+@media (min-width: 600px) {
+  .latest-news{
+    .event_image{
+      img{
+        width: 80%;
+      }
+    }
+  }
+}
+@screen lg {
+  .latest-news{
+    flex-direction: row;
+    .event_image{
+      img{
+        width: 100%;
+      }
+    }
+  }
+  .right_section {
+    padding: 0 20px;
   }
 }

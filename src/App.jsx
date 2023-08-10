@@ -41,7 +41,7 @@ export default function App() {
             fetch(jsonUrl)
                 .then(response => response.json())
                 .then(data => {
-                    if(Array.isArray(data)) {
+                    if (Array.isArray(data)) {
                         method(data);
                     } else {
                         method(data.data);
@@ -69,7 +69,7 @@ export default function App() {
 
     }, []);
 
-    $(window).scroll(function(e){
+    $(window).scroll(function (e) {
         let button = $(".back-to-top")
         if ($(this).scrollTop() > 0) {
             button.addClass('vis');
@@ -82,10 +82,11 @@ export default function App() {
 
     return (
         <>
-            <div className="dark container mx-auto" id="top">
+            <div className="dark container mx-auto">
                 <Header websiteURL={websiteURL} logo={logo} menu={menu} social={social}/>
                 <Banner banner={banner}/>
-                <Teasers websiteURL={websiteURL} importantTeaser={importantTeaser} teasers={teasers} containerClass={'teasers'}/>
+                <Teasers websiteURL={websiteURL} importantTeaser={importantTeaser} teasers={teasers}
+                         containerClass={'teasers'}/>
             </div>
             <div className="white container mx-auto">
                 <Teasers websiteURL={websiteURL} teasers={slider1} containerClass={'teasers__slider1'}/>
@@ -94,7 +95,8 @@ export default function App() {
                 <Static websiteURL={websiteURL} staticBlock={staticBlock1} textColor={'white'}/>
             </div>
             <div className="white container mx-auto">
-                <Teasers websiteURL={websiteURL} teasers={slider2} containerClass={'teasers__slider2'} textColor={'black'}/>
+                <Teasers websiteURL={websiteURL} teasers={slider2} containerClass={'teasers__slider2'}
+                         textColor={'black'}/>
             </div>
             <div className="bg-[#ffd335] static container mx-auto text-black">
                 <Static websiteURL={websiteURL} staticBlock={staticBlock2} textColor={'black'}/>
@@ -103,7 +105,8 @@ export default function App() {
                 <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'articles'}/>
             </div>
             <div className="dark container mx-auto px-40 py-60">
-                <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'teasers__slider2 dark-slider'} textColor={'white'}/>
+                <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'teasers__slider2 dark-slider'}
+                         textColor={'white'}/>
             </div>
             <div className="white container mx-auto latest-news">
                 <Teasers websiteURL={websiteURL} teasers={articles} containerClass={'articles'}/>
@@ -111,28 +114,35 @@ export default function App() {
                     <Archive websiteURL={websiteURL} archives={archives}/>
                     <div className="event_image">
                         {eventImage.field_image && (
-                            <img src={websiteURL + eventImage.field_image.uri.url} alt={eventImage.field_image.alt} className="mt-[60px]"/>
+                            <img src={websiteURL + eventImage.field_image.uri.url} alt={eventImage.field_image.alt}
+                                 className="mt-[60px]"/>
                         )}
                     </div>
-                    <Testimonial websiteURL={websiteURL} testimonials={testimonials} />
+                    <Testimonial websiteURL={websiteURL} testimonials={testimonials}/>
                 </div>
             </div>
 
 
-
-            <a href="#top" className="back-to-top invis">
-                Back to top <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="h-8 w-8">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg></a>
+            <a href="#top" className="back-to-top invis" onClick={function() {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 10);
+            }}>
+                Back to top
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="h-8 w-8">
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 11.25l-3-3m0 0l-3 3m3-3v7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                </svg>
+            </a>
         </>
     );
 };

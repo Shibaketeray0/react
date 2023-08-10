@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { Fade as Hamburger } from 'hamburger-react';
+import {Fade as Hamburger} from 'hamburger-react';
+
 export default function Header({websiteURL, logo, menu, social}) {
     const [isOpen, setOpen] = useState(false);
 
@@ -29,6 +30,8 @@ export default function Header({websiteURL, logo, menu, social}) {
     const handleBurger = () => {
         let element = document.getElementsByClassName('burger-menu-overlay');
         element[0].classList.toggle('show');
+        document.body.classList.toggle("overflow-hidden");
+        document.getElementById('root').classList.toggle("overflow-hidden");
     }
     return (
         <header>
@@ -49,7 +52,8 @@ export default function Header({websiteURL, logo, menu, social}) {
 
                     <ul className="menu uppercase hidden lg:flex">{displayMenu}</ul>
                     <div className={isOpen === false ? 'hamburger flex lg:hidden' : 'hamburger top-4 right-4 absolute'}>
-                        <Hamburger direction="right" size={24} color={isOpen === false ? 'gray' : 'black'} onToggle={handleBurger} toggled={isOpen} toggle={setOpen}/>
+                        <Hamburger direction="right" size={24} color={isOpen === false ? 'gray' : 'black'}
+                                   onToggle={handleBurger} toggled={isOpen} toggle={setOpen}/>
                     </div>
 
 
@@ -58,14 +62,32 @@ export default function Header({websiteURL, logo, menu, social}) {
                     <ul className="social_links hidden lg:flex">{displaySocial}</ul>
                 )}
             </div>
-            <div className="burger-menu-overlay text-black bg-white lg:hidden">
-                <ul className="menu-burger uppercase flex flex-col">{displayMenu}</ul>
+            <div className="burger-menu-overlay text-black bg-white lg:hidden overflow-scroll">
+                <ul className="menu-burger uppercase flex flex-col bg-white">
+                    {
+                        menu.map((link, index) => {
+                            return (
+                                <li key={index}>
+                                    <a href={link.link.uri}>
+                                        <span className="arrow-left">
+                                            ↳
+                                        </span>
+                                        {link.title}
+                                    </a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
                 {social.field_social_links && (
-                    <ul className="social-links-burger flex flex-col">
+                    <ul className="social-links-burger flex flex-col bg-white">
                         {social.field_social_links.map((link, index) => {
                             return (
                                 <li key={index} className={link.field_link.title}>
                                     <a href={link.field_link.uri} target={"_blank"}>
+                                    <span className="arrow-left">
+                                        ↳
+                                    </span>
                                         {link.field_link.title}
                                     </a>
                                 </li>
@@ -74,7 +96,6 @@ export default function Header({websiteURL, logo, menu, social}) {
                     </ul>
                 )}
             </div>
-
         </header>
     );
 };

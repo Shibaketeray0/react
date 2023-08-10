@@ -4,7 +4,7 @@ export default function Static({websiteURL, staticBlock, textColor}) {
 
 
     return (
-        <div className="static_block grid grid-cols-2 gap-x-16">
+        <div className="static_block">
             {staticBlock.body && staticBlock.field_title && (
                 <div className="left_section">
                     <p className="title">

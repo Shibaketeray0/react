@@ -1,27 +1,38 @@
 .static{
-  padding: 0 75px;
+  padding: 0 25px;
 }
 .static_block{
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  .left_section, .right_section{
+    width: 100%;
+  }
   .left_section{
-    padding: 75px 0;
+    padding: 25px 0 40px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap:40px;
   }
+  .right_section{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+  }
   .title{
-    font-size: 60px;
-    line-height: 73px;
+    font-size: 30px;
+    line-height: 42px;
     font-weight: 600;
   }
   .body{
     font-size: 25px;
-    width: 95%;
+    width: 100%;
   }
   .button_link{
     margin-top: 30px;
     a{
-      padding: 20px 80px;
+      padding: 20px calc(3vw + 20px);
       font-size: 25px;
       font-weight: 500;
     }
@@ -29,4 +40,40 @@
 
     }
   }
+}
+@screen md {
+  .static{
+    padding: 0 75px;
+  }
+}
+@screen lg {
+  .static_block{
+    .title{
+      font-size: 60px;
+      line-height: 73px;
+      font-weight: 600;
+    }
+    .body{
+      width: 95%;
+    }
+    .left_section{
+      padding: 75px 15px;
+    }
+    .right_section{
+      padding-top: 75px;
+    }
+  }
+}
+@screen xl {
+  .static_block{
+    text-align: left;
+    flex-direction: row;
+    .left_section, .right_section{
+      width: 50%;
+    }
+    .right_section{
+      padding-top: 0;
+    }
+  }
+
 }

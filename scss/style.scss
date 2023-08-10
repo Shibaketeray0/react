@@ -18,14 +18,23 @@ body {
 }
 
 .white {
-  padding: 60px 40px 60px 40px;
+  padding:30px 10px;
   background: #fff;
 }
 
 .dark {
   background: #121212;
-  padding: 20px 40px 40px 40px;
+  padding: 10px;
 }
+@screen lg {
+  .dark{
+    padding: 20px 40px 40px 40px;
+  }
+  .white{
+    padding: 60px 40px 60px 40px;
+  }
+}
+
 
 .slick-slide {
   width: 25%;
@@ -33,6 +42,9 @@ body {
 
 .slick-arrow {
   display: none !important;
+}
+.arrow-left{
+  margin-right: 20px;
 }
 .burger-menu-overlay{
   position: absolute;
@@ -54,7 +66,7 @@ body {
     height: 2px;
   }
 }
-.menu-burger{
+.menu-burger, .social-links-burger{
   a{
     text-decoration: none;
     color: rgba(0, 0, 0, 0.6);
@@ -67,29 +79,37 @@ body {
     width: 100%;
   }
 }
-
-
+.menu-burger{
+  margin-top: 80px;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
 .back-to-top {
   position: fixed;
   display: flex;
   align-items: center;
   bottom: 20px;
   right: 20px;
-  padding: 7px 13px;
+  padding: 0;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: pointer;
   background: white;
   opacity: 0;
   max-height: 0;
-  transition: max-height 1.5s ease, opacity 0.5s ease;
+  transition: max-height 1.5s ease, opacity 0.5s ease, padding 3s;
   overflow: hidden;
 
 }
 .vis{
   opacity: 1;
   max-height: 500px;
-  transition: max-height 1.5s ease, opacity 0.4s ease;
+  padding: 7px 13px;
+  transition:  opacity 2s ease, padding 0.1s ease;
+}
+#id{
+
 }
 
 
