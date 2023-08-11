@@ -488,7 +488,30 @@ header .social_links img {
   padding: 20px calc(3vw + 20px);
   font-size: 25px;
   font-weight: 500;
+  transition: 0.3s ease;
+  outline-offset: 0;
+  text-shadow: none;
 }
+.static.text-white .button_link a {
+  border: 1px solid #fff;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid rgba(255, 255, 255, 0.5);
+}
+.static.text-white .button_link a:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388;
+}
+
+.static.text-black .button_link a:hover {
+  background: transparent;
+  border: 1px solid #000;
+  transition: 0.3s ease;
+  color: #000;
+}
+
 @screen md {
   .static {
     padding: 0 75px;
@@ -526,25 +549,21 @@ header .social_links img {
   display: flex;
   flex-direction: column;
 }
-.latest-news .articles,
-.latest-news .articles {
-  max-width: 66%;
-}
-.latest-news .articles .featured_service,
 .latest-news .articles .featured_service {
   max-width: 100%;
   width: 100%;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 40px;
 }
-.latest-news .articles .featured_service img,
+.latest-news .articles .featured_service .teaser_image {
+  width: 100%;
+}
 .latest-news .articles .featured_service img {
-  width: 350px;
+  width: 100%;
   height: 210px;
   padding: 0;
 }
-.latest-news .articles .teaser_image,
 .latest-news .articles .teaser_image {
   align-self: end;
 }
@@ -608,6 +627,24 @@ header .social_links img {
   .latest-news .event_image img {
     width: 80%;
   }
+  .latest-news .articles .featured_service img {
+    height: 350px;
+  }
+}
+@screen md {
+  .latest-news .articles {
+    max-width: 100%;
+  }
+  .latest-news .articles .featured_service {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .latest-news .articles .featured_service .teaser_image {
+    width: auto;
+  }
+  .latest-news .articles .featured_service img {
+    width: 350px;
+  }
 }
 @screen lg {
   .latest-news {
@@ -615,6 +652,9 @@ header .social_links img {
   }
   .latest-news .event_image img {
     width: 100%;
+  }
+  .latest-news .articles {
+    max-width: 66%;
   }
   .right_section {
     padding: 0 20px;

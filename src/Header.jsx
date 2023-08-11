@@ -55,8 +55,6 @@ export default function Header({websiteURL, logo, menu, social}) {
                         <Hamburger direction="right" size={24} color={isOpen === false ? 'gray' : 'black'}
                                    onToggle={handleBurger} toggled={isOpen} toggle={setOpen}/>
                     </div>
-
-
                 </div>
                 {social.field_social_links && (
                     <ul className="social_links hidden lg:flex">{displaySocial}</ul>
