@@ -51,16 +51,26 @@ export default function Header({websiteURL, logo, menu, social}) {
                     )}
 
                     <ul className="menu uppercase hidden lg:flex">{displayMenu}</ul>
-                    <div className={isOpen === false ? 'hamburger flex lg:hidden' : 'hamburger top-4 right-4 absolute'}>
-                        <Hamburger direction="right" size={24} color={isOpen === false ? 'gray' : 'black'}
-                                   onToggle={handleBurger} toggled={isOpen} toggle={setOpen}/>
+                    <div className="burger flex lg:hidden text-gray-400" onClick={handleBurger}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                             stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round"
+                                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                        </svg>
                     </div>
                 </div>
                 {social.field_social_links && (
                     <ul className="social_links hidden lg:flex">{displaySocial}</ul>
                 )}
             </div>
-            <div className="burger-menu-overlay text-black bg-white lg:hidden overflow-scroll">
+            <div className="burger-menu-overlay text-black bg-white lg:hidden overflow-scroll transition-all">
+                <div className="burger burger-close flex lg:hidden text-black" onClick={handleBurger}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
+                         stroke="currentColor" className="w-10 h-10">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+
+                </div>
                 <ul className="menu-burger uppercase flex flex-col bg-white">
                     {
                         menu.map((link, index) => {
