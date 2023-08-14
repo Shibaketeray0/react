@@ -115,7 +115,7 @@ body {
 .vis {
   opacity: 1;
   max-height: 500px;
-  padding: 7px 13px;
+  padding: 3px 9px;
   transition: opacity 2s ease, padding 0.1s ease;
 }
 

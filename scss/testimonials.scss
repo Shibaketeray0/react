@@ -1,6 +1,7 @@
-.testimonials{
+.testimonials {
   margin-top: 40px;
-  .testimonial{
+
+  .testimonial {
     font-size: 13px;
     line-height: 21px;
     font-weight: 300;
@@ -8,22 +9,27 @@
     padding: 24px 0 24px 24px;
     border-bottom: 1px solid #e5e5e5;
     border-left: 1px solid #e5e5e5;
-    img{
+
+    img {
       border-radius: 2000px;
       width: 36px;
       height: 36px;
     }
-    .body{
+
+    .body {
       opacity: 0.5;
     }
-    .user{
+
+    .user {
       font-weight: 400;
     }
-    .testimonial_content{
-        padding-left: 10px;
+
+    .testimonial_content {
+      padding-left: 10px;
     }
   }
-  .testimonial:last-child{
+
+  .testimonial:last-child {
     border-bottom: none;
   }
 }

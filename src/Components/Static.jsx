@@ -14,7 +14,8 @@ export default function Static({websiteURL, staticBlock, textColor}) {
                         {stripHtmlTags(staticBlock.body.value)}
                     </div>
                     <div className="button_link">
-                        <a href={staticBlock.field_link.uri} className={textColor === 'black' ? 'text-white bg-black border border-solid border-black' : 'border border-solid border-white'}>{staticBlock.field_link.title}</a>
+                        <a href={staticBlock.field_link.uri}
+                           className={textColor === 'black' ? 'text-white bg-black border border-solid border-black' : 'border border-solid border-white'}>{staticBlock.field_link.title}</a>
                     </div>
                 </div>
             )}

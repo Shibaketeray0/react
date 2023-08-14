@@ -6,6 +6,8 @@ import Static from "./Static.jsx";
 import Archive from "./Archive.jsx";
 import Testimonial from "./Testimonial.jsx";
 
+
+//function to get tag attributes from strings (from JSON)
 export const parseAttribute = (string, tag, attribute) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(string, 'text/html');
@@ -69,6 +71,7 @@ export default function App() {
 
     }, []);
 
+    //function to handle "Back to top" button's classes for transition
     $(window).scroll(function (e) {
         let button = $(".back-to-top")
         if ($(this).scrollTop() > 0) {
@@ -122,8 +125,7 @@ export default function App() {
                 </div>
             </div>
 
-
-            <a href="#top" className="back-to-top invis" onClick={function() {
+            <a href="#top" className="back-to-top invis" onClick={function () {
                 $("html, body").animate({
                     scrollTop: 0
                 }, 10);

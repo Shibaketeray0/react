@@ -1,9 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {Fade as Hamburger} from 'hamburger-react';
+import React, {useState} from 'react';
 
 export default function Header({websiteURL, logo, menu, social}) {
     const [isOpen, setOpen] = useState(false);
-
+    const handleBurger = () => {
+        setOpen(isOpen => !isOpen);
+        document.body.classList.toggle("overflow-hidden");
+    }
+    // main navigation
     const displayMenu = menu.map((link, index) => {
         return (
             <li key={index}>
@@ -13,6 +16,7 @@ export default function Header({websiteURL, logo, menu, social}) {
             </li>
         )
     });
+    // social links
     const displaySocial = social.field_social_links
         ? social.field_social_links.map((link, index) => {
             return (
@@ -27,12 +31,6 @@ export default function Header({websiteURL, logo, menu, social}) {
             )
         })
         : null;
-    const handleBurger = () => {
-        let element = document.getElementsByClassName('burger-menu-overlay');
-        element[0].classList.toggle('show');
-        document.body.classList.toggle("overflow-hidden");
-        document.getElementById('root').classList.toggle("overflow-hidden");
-    }
     return (
         <header>
             <div className="container flex justify-between items-center">
@@ -49,8 +47,8 @@ export default function Header({websiteURL, logo, menu, social}) {
                             </a>
                         </div>
                     )}
-
                     <ul className="menu uppercase hidden lg:flex">{displayMenu}</ul>
+
                     <div className="burger flex lg:hidden text-gray-400" onClick={handleBurger}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                              stroke="currentColor" className="w-6 h-6">
@@ -58,18 +56,20 @@ export default function Header({websiteURL, logo, menu, social}) {
                                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
                         </svg>
                     </div>
+
                 </div>
                 {social.field_social_links && (
                     <ul className="social_links hidden lg:flex">{displaySocial}</ul>
                 )}
             </div>
-            <div className="burger-menu-overlay text-black bg-white lg:hidden overflow-scroll transition-all">
+            {/*re-rendering main menu and social links for burger menu*/}
+            <div
+                className={`burger-menu-overlay ${isOpen && ("show")} text-black bg-white lg:hidden overflow-scroll transition-all`}>
                 <div className="burger burger-close flex lg:hidden text-black" onClick={handleBurger}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                          stroke="currentColor" className="w-10 h-10">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
-
                 </div>
                 <ul className="menu-burger uppercase flex flex-col bg-white">
                     {

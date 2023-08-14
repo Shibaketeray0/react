@@ -1,37 +1,45 @@
-.static{
+.static {
   padding: 0 25px;
 }
-.static_block{
+
+.static_block {
   display: flex;
   flex-direction: column-reverse;
   text-align: center;
-  .left_section, .right_section{
+
+  .left_section, .right_section {
     width: 100%;
   }
-  .left_section{
+
+  .left_section {
     padding: 25px 0 40px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap:40px;
+    gap: 40px;
   }
-  .right_section{
+
+  .right_section {
     display: flex;
     justify-content: center;
     padding-top: 25px;
   }
-  .title{
+
+  .title {
     font-size: 30px;
     line-height: 42px;
     font-weight: 600;
   }
-  .body{
+
+  .body {
     font-size: 25px;
     width: 100%;
   }
-  .button_link{
+
+  .button_link {
     margin-top: 30px;
-    a{
+
+    a {
       padding: 20px calc(3vw + 20px);
       font-size: 25px;
       font-weight: 500;
@@ -39,19 +47,22 @@
       outline-offset: 0;
       text-shadow: none;
     }
-    a:hover{
+
+    a:hover {
 
     }
   }
 }
-.static.text-white{
-  .button_link{
-    a{
+
+.static.text-white {
+  .button_link {
+    a {
       border: 1px solid #fff;
       box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
       outline: 1px solid rgba(255, 255, 255, .5);
     }
-    a:hover{
+
+    a:hover {
       border: 1px solid;
       box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
       outline-color: rgba(255, 255, 255, 0);
@@ -60,48 +71,54 @@
     }
   }
 }
-.static.text-black{
-  .button_link{
-    a:hover{
+
+.static.text-black {
+  .button_link {
+    a:hover {
       background: transparent;
       border: 1px solid #000;
       transition: 0.3s ease;
-      color:#000;
+      color: #000;
     }
   }
 }
 
 @screen md {
-  .static{
+  .static {
     padding: 0 75px;
   }
 }
 @screen lg {
-  .static_block{
-    .title{
+  .static_block {
+    .title {
       font-size: 60px;
       line-height: 73px;
       font-weight: 600;
     }
-    .body{
+
+    .body {
       width: 95%;
     }
-    .left_section{
+
+    .left_section {
       padding: 75px 15px;
     }
-    .right_section{
+
+    .right_section {
       padding-top: 75px;
     }
   }
 }
 @screen xl {
-  .static_block{
+  .static_block {
     text-align: left;
     flex-direction: row;
-    .left_section, .right_section{
+
+    .left_section, .right_section {
       width: 50%;
     }
-    .right_section{
+
+    .right_section {
       padding-top: 0;
     }
   }
